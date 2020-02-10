@@ -1,17 +1,17 @@
 import React from "react";
+import { Provider } from "react-redux";
 import CommentBox from "components/CommentBox";
 import CommentWrapper from "components/CommentWrapper";
+import store from "store";
 
 const App: React.FC = () => {
-  const [comments, updateComments] = React.useState<string[]>([""]);
-
-  const addComment = (e: string) => updateComments(val => [...val, e]);
-
   return (
-    <div className="App">
-      <CommentBox handleAddComment={addComment} />
-      <CommentWrapper comments={comments} />
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <CommentBox />
+        <CommentWrapper />
+      </div>
+    </Provider>
   );
 };
 

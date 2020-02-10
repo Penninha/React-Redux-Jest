@@ -6,7 +6,7 @@ import CommentBox from "../index";
 let wrapped: ShallowWrapper;
 
 beforeEach(() => {
-  wrapped = shallow(<CommentBox handleAddComment={(e: string) => {}} />);
+  wrapped = shallow(<CommentBox />);
 });
 
 it("renders the entire form", () => {

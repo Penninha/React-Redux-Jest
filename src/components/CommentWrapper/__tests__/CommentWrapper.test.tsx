@@ -4,9 +4,7 @@ import CommentWrapper from "../index";
 import { shallow } from "enzyme";
 
 it("should render the comments", () => {
-  const wrapped = shallow(
-    <CommentWrapper comments={["Comment1", "Comment2"]} />
-  );
+  const wrapped = shallow(<CommentWrapper />);
 
   expect(wrapped.find(Typography).length).toEqual(2);
 });
