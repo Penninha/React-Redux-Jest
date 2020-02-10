@@ -1,17 +1,17 @@
 import React from "react";
-import { Provider } from "react-redux";
+import Root from "store/root";
 import CommentBox from "components/CommentBox";
 import CommentWrapper from "components/CommentWrapper";
 import store from "store";
 
 const App: React.FC = () => {
   return (
-    <Provider store={store}>
+    <Root store={store}>
       <div className="App">
         <CommentBox />
         <CommentWrapper />
       </div>
-    </Provider>
+    </Root>
   );
 };
 
