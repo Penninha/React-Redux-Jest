@@ -1,21 +1,20 @@
 import React from "react";
+import store from "store";
+
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import { saveComment } from "store/ducks/comments/actions";
 
-interface OwnProps {
-  handleAddComment: (e: string) => void;
-}
-
-const CommentBox: React.FC<OwnProps> = ({ handleAddComment }) => {
+const CommentBox: React.FC = () => {
   const [value, setValue] = React.useState<string>("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setValue(e.target.value);
 
   const handleClick = () => {
-    handleAddComment(value);
+    store.dispatch(saveComment({ comment: value }));
     setValue("");
   };
 
