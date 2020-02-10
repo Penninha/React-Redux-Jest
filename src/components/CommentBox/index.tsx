@@ -1,11 +1,16 @@
 import React from "react";
-import store from "store";
-
+import { connect } from "react-redux";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { saveComment } from "store/ducks/comments/actions";
+import { Commentary } from "store/ducks/comments/types";
+import store from "store";
+
+// interface OwnProps {
+//   saveComment(a: Commentary): void;
+// }
 
 const CommentBox: React.FC = () => {
   const [value, setValue] = React.useState<string>("");
