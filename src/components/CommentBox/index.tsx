@@ -36,6 +36,7 @@ const CommentBox: React.FC<OwnProps> = ({ handleAddComment }) => {
       </Grid>
       <Grid item xs={12}>
         <Button
+          id="comment-box-button"
           onClick={handleClick}
           variant="contained"
           size="large"
