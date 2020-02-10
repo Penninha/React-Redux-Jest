@@ -6,20 +6,19 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { saveComment } from "store/ducks/comments/actions";
 import { Commentary } from "store/ducks/comments/types";
-import store from "store";
 
-// interface OwnProps {
-//   saveComment(a: Commentary): void;
-// }
+interface OwnProps {
+  saveComment(a: Commentary): void;
+}
 
-const CommentBox: React.FC = () => {
+const CommentBox: React.FC<OwnProps> = ({ saveComment }) => {
   const [value, setValue] = React.useState<string>("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setValue(e.target.value);
 
   const handleClick = () => {
-    store.dispatch(saveComment({ comment: value }));
+    saveComment({ comment: value });
     setValue("");
   };
 
@@ -53,4 +52,4 @@ const CommentBox: React.FC = () => {
   );
 };
 
-export default CommentBox;
+export default connect(null, { saveComment })(CommentBox);
