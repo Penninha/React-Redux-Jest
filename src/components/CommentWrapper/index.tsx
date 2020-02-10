@@ -9,8 +9,8 @@ interface OwnProps {
 const CommentTitle: React.FC<OwnProps> = ({ comments }) => {
   return (
     <Grid container style={{ marginTop: 20 }}>
-      {comments.map(item => (
-        <Grid item xs={12}>
+      {comments.map((item, id) => (
+        <Grid item xs={12} key={id}>
           <Typography>{item}</Typography>
         </Grid>
       ))}
